@@ -28,6 +28,7 @@ dependencies:
   http: ^0.12.0+2
   basic_utils: ^2.5.3
   flutter_swiper: ^1.1.6
+  dots_indicator: ^1.0.0
 
 dev_dependencies:
   flutter_test:

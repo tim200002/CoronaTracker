@@ -13,7 +13,8 @@ class MyApp extends StatelessWidget {
         home: Scaffold(
           body: SafeArea(
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+              padding: const EdgeInsets.only(
+                  top: 10, left: 10, right: 10, bottom: 0),
               child: PageViewer(),
             ),
           ),

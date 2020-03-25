@@ -1,4 +1,5 @@
 import 'package:corona/Assets/Styling.dart';
+import 'package:corona/Widgets/BottomNavigationPoitns.dart';
 import 'package:corona/Widgets/compareScreenCard.dart';
 import 'package:corona/Widgets/doubleChart.dart';
 import 'package:corona/Widgets/statChart.dart';
@@ -88,7 +89,7 @@ class _CompareScreenState extends State<CompareScreen>
         child: Text(
           "Compare",
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.normal),
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
         ),
       ),
     );
@@ -113,7 +114,8 @@ class _CompareScreenState extends State<CompareScreen>
                 ),
                 //Compare Button
                 compareButton,
-                Text("You need to Enter 2 countries to compare")
+                Text("You need to Enter 2 countries to compare"),
+                Expanded(child: makeNewBottomNavigationBar(2, 3, 2.0)),
               ],
             ),
           );
@@ -145,7 +147,7 @@ class _CompareScreenState extends State<CompareScreen>
                 //Slider with 3 Graphs
                 Expanded(
                   child: Swiper(
-                    pagination: new SwiperPagination(),
+                    //pagination: new SwiperPagination(), //I Need another Way to Show that it's swipable to Paginations look ridiculous
                     itemCount: 3,
                     itemBuilder: (BuildContext context, int index) {
                       if (index == 0) {
@@ -173,6 +175,7 @@ class _CompareScreenState extends State<CompareScreen>
                     },
                   ),
                 ),
+                makeNewBottomNavigationBar(2, 3, 2.0)
               ],
             ),
           );

@@ -8,11 +8,15 @@ import 'doubleChart.dart';
 Container makeCompareScreenCard(String headline, List<TimeSeriesCases> data1,
     List<TimeSeriesCases> data2, String country1, String country2) {
   return Container(
-    color: Colors.grey[400],
+    decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10), color: Colors.grey[300]),
     padding: const EdgeInsets.only(top: 5),
     child: Column(
       children: <Widget>[
-        Text(headline),
+        Text(
+          headline,
+          style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
+        ),
         DoubleChart(
             data1: data1,
             data2: data2,
@@ -25,11 +29,11 @@ Container makeCompareScreenCard(String headline, List<TimeSeriesCases> data1,
             children: <Widget>[
               Text(
                 StringUtils.capitalize(country1),
-                style: TextStyle(color: Colors.blue),
+                style: TextStyle(color: Colors.blue, fontSize: 16),
               ),
               Text(
                 StringUtils.capitalize(country2),
-                style: TextStyle(color: Colors.red),
+                style: TextStyle(color: Colors.red, fontSize: 16),
               )
             ],
           ),

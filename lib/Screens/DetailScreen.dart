@@ -1,10 +1,12 @@
 import 'package:basic_utils/basic_utils.dart';
 import 'package:corona/Assets/Styling.dart';
+import 'package:corona/Widgets/BottomNavigationPoitns.dart';
 import 'package:corona/Widgets/statChart.dart';
 import 'package:corona/Widgets/statChart.dart';
 import 'package:corona/blocs/blocDetailScreen.dart';
 import 'package:corona/events/detailEvents.dart';
 import 'package:corona/states/detailStates.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -49,7 +51,7 @@ class _DetailScreenState extends State<DetailScreen>
                 createNewCountryFieldInputDecoration('Please Enter a Country'));
 
         return Container(
-          padding: const EdgeInsets.all(8),
+          padding: const EdgeInsets.only(top: 8, left: 8, right: 8),
           child: Column(children: <Widget>[
             //Top Input Bar
             Padding(
@@ -58,6 +60,7 @@ class _DetailScreenState extends State<DetailScreen>
             ),
 
             Text("Please Enter Some Data"),
+            Expanded(child: makeNewBottomNavigationBar(1, 3, 2.0)),
           ]),
         );
       } else if (state is FetchingData) {
@@ -101,12 +104,13 @@ class _DetailScreenState extends State<DetailScreen>
                 child: countryField,
               ),
               //The Box with the most Important Facts
-              Expanded(
-                flex: 2,
-                child: Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey, width: 1)),
+              Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey, width: 1),
+                    borderRadius: BorderRadius.circular(10)),
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -122,7 +126,7 @@ class _DetailScreenState extends State<DetailScreen>
                                   .substring(0, 10),
                               style: boxNumberStyle),
                           TextSpan(
-                              text: "(Midnight): ", style: boxHeadlineStyle),
+                              text: " (Midnight)", style: boxHeadlineStyle),
                         ]),
                       ),
                       RichText(
@@ -211,14 +215,19 @@ class _DetailScreenState extends State<DetailScreen>
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text("Current", style: TextStyle(color: Colors.blue)),
-                  Text("Deaths", style: TextStyle(color: Colors.red)),
+                  Text(
+                    "Current",
+                    style: TextStyle(color: Colors.blue, fontSize: 16),
+                  ),
+                  Text("Deaths",
+                      style: TextStyle(color: Colors.red, fontSize: 16)),
                   Text(
                     "Recoverd",
-                    style: TextStyle(color: Colors.green),
+                    style: TextStyle(color: Colors.green, fontSize: 16),
                   )
                 ],
-              )
+              ),
+              makeNewBottomNavigationBar(1, 3, 2.0),
             ],
           ),
         );
