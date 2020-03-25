@@ -2,11 +2,9 @@ import 'package:basic_utils/basic_utils.dart';
 import 'package:corona/Assets/Styling.dart';
 import 'package:corona/Widgets/BottomNavigationPoitns.dart';
 import 'package:corona/Widgets/statChart.dart';
-import 'package:corona/Widgets/statChart.dart';
 import 'package:corona/blocs/blocDetailScreen.dart';
 import 'package:corona/events/detailEvents.dart';
 import 'package:corona/states/detailStates.dart';
-import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,8 +19,10 @@ class _DetailScreenState extends State<DetailScreen>
     with AutomaticKeepAliveClientMixin {
   @override
   bool get wantKeepAlive => true;
+
   @override
   Widget build(BuildContext context) {
+    super.build(context); //Don't know what this does
     final BlocDetailScreen blocDetailScreen =
         BlocProvider.of<BlocDetailScreen>(context);
     return BlocBuilder<BlocDetailScreen, DetailStates>(
@@ -110,7 +110,7 @@ class _DetailScreenState extends State<DetailScreen>
                     border: Border.all(color: Colors.grey, width: 1),
                     borderRadius: BorderRadius.circular(10)),
                 child: Padding(
-                  padding: const EdgeInsets.all(4.0),
+                  padding: const EdgeInsets.all(6.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -213,17 +213,24 @@ class _DetailScreenState extends State<DetailScreen>
               ),
 
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    "Current",
+                    "Cases",
                     style: TextStyle(color: Colors.blue, fontSize: 16),
+                    textAlign: TextAlign.left,
                   ),
-                  Text("Deaths",
-                      style: TextStyle(color: Colors.red, fontSize: 16)),
+                  Spacer(),
+                  Text(
+                    "     Deaths",
+                    style: TextStyle(color: Colors.red, fontSize: 16),
+                    textAlign: TextAlign.center,
+                  ),
+                  Spacer(),
                   Text(
                     "Recoverd",
                     style: TextStyle(color: Colors.green, fontSize: 16),
+                    textAlign: TextAlign.right,
                   )
                 ],
               ),

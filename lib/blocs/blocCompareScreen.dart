@@ -1,6 +1,5 @@
 import 'package:corona/Classes/Results.dart';
 import 'package:corona/events/compareEvents.dart';
-import 'package:corona/events/detailEvents.dart';
 import 'package:corona/states/compareStates.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

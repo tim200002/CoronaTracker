@@ -1,15 +1,12 @@
 import 'package:corona/Assets/Styling.dart';
 import 'package:corona/Widgets/BottomNavigationPoitns.dart';
 import 'package:corona/Widgets/compareScreenCard.dart';
-import 'package:corona/Widgets/doubleChart.dart';
-import 'package:corona/Widgets/statChart.dart';
 import 'package:corona/blocs/blocCompareScreen.dart';
 import 'package:corona/events/compareEvents.dart';
 import 'package:corona/states/compareStates.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:charts_flutter/flutter.dart' as charts;
 
 class CompareScreen extends StatefulWidget {
   /*
@@ -39,7 +36,8 @@ class _CompareScreenState extends State<CompareScreen>
 
   @override
   Widget build(BuildContext context) {
-    //Instance of the Bloc
+    super.build(context); //Don't know what this does
+    //Instance of the Bloc ist good false Warning
     final BlocCompareScreen blocCompareScreen =
         BlocProvider.of<BlocCompareScreen>(context);
     //First Input Field with Controller
@@ -114,7 +112,14 @@ class _CompareScreenState extends State<CompareScreen>
                 ),
                 //Compare Button
                 compareButton,
-                Text("You need to Enter 2 countries to compare"),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20.0),
+                  child: Text(
+                    "You need to Enter two countries to compare to each other",
+                    style: TextStyle(fontSize: 20),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
                 Expanded(child: makeNewBottomNavigationBar(2, 3, 2.0)),
               ],
             ),

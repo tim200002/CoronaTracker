@@ -1,5 +1,4 @@
 import 'package:corona/Classes/Results.dart';
-import 'package:corona/Widgets/statChart.dart';
 import 'package:corona/events/detailEvents.dart';
 import 'package:corona/states/detailStates.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

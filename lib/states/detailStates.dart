@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:corona/Assets/helperFunctions.dart';
 import 'package:corona/Classes/Results.dart';
 import 'package:corona/Widgets/statChart.dart';
