@@ -10,7 +10,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 //!Todo Redesign a bit it isn't necessary to define the text Fields two times
 
-class DetailScreen extends StatelessWidget {
+class DetailScreen extends StatefulWidget {
+  @override
+  _DetailScreenState createState() => _DetailScreenState();
+}
+
+class _DetailScreenState extends State<DetailScreen>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
   @override
   Widget build(BuildContext context) {
     final BlocDetailScreen blocDetailScreen =
