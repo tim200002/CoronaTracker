@@ -10,7 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 
-class CompareScreen extends StatelessWidget {
+class CompareScreen extends StatefulWidget {
   /*
   //Hard Coded Data for Styling purposes
   final List<TimeSeriesCases> testData1 = [
@@ -26,6 +26,15 @@ class CompareScreen extends StatelessWidget {
     new TimeSeriesCases(new DateTime(2017, 10, 10), 800),
   ];
   */
+
+  @override
+  _CompareScreenState createState() => _CompareScreenState();
+}
+
+class _CompareScreenState extends State<CompareScreen>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   Widget build(BuildContext context) {
@@ -171,6 +180,4 @@ class CompareScreen extends StatelessWidget {
       },
     );
   }
-
- 
 }
